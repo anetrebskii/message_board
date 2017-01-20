@@ -1,14 +1,69 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>MessageBoard</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>MessageBoard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+</head>
 
-  <body>
+<body>
+<!-- Start Top Bar -->
+<div class="top-bar">
+  <div class="row">
+    <div class="top-bar-left">
+      <ul class="dropdown menu" data-dropdown-menu>
+        <li class="menu-text">Advertisement board</li>
+        <li class="has-submenu">
+          <!--<a href="#">One</a>-->
+          <!--<ul class="submenu menu vertical" data-submenu>-->
+            <!--<li><a href="#">One</a></li>-->
+            <!--<li><a href="#">Two</a></li>-->
+            <!--<li><a href="#">Three</a></li>-->
+          <!--</ul>-->
+        <!--</li>-->
+        <!--<li><a href="#">Two</a></li>-->
+        <!--<li><a href="#">Three</a></li>-->
+      </ul>
+    </div>
+    <div class="top-bar-right">
+      <ul class="menu">
+        <li>
+          <%= link_to "+ Add advertisement", new_advertisement_path(), class: 'button' %>
+          <!--<%= button_tag "+ Add advertisement" %>-->
+          <!--<button type="button" class="button">+ sAdd advertisement</button>-->
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<br/>
+<!-- End Top Bar -->
+<div class="row columns">
+  <nav aria-label="You are here:" role="navigation">
+    <ul class="breadcrumbs">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Features</a></li>
+      <li class="disabled">Gene Splicing</li>
+      <li>
+        <span class="show-for-sr">Current: </span> Cloning
+      </li>
+    </ul>
+  </nav>
+</div>
+<div class="row">
+  <div class="column">
     <%= yield %>
-  </body>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+<script>
+  $(document).foundation();
+</script>
+</body>
 </html>

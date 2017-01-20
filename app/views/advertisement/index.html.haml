@@ -1,0 +1,19 @@
+%h3
+- if @advertisements.empty?
+  .row
+    .column.small-4
+      &nbsp;
+    .column.small-4
+      = image_tag 'pure_cat.jpg', { width: 400 }
+      .text-center.gray
+        Nothing found
+    .column.small-4
+      &nbsp;
+- else
+  - @advertisements.each do |adv|
+    .media-object.stack-for-small
+      .media-object-section
+        %img.thumbnail(src="https://dummyimage.com/100x100/878787/525252.png&text=No+image")
+      .media-object-section
+        %h5=adv.title
+        %p=adv.description

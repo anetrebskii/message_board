@@ -1,0 +1,23 @@
+%h3
+  = I18n.t('New advertisement')
+%p.gray
+  Please adds your advertisement
+= form_for @advertisement, url: { action: :create } do |f|
+  .row
+    .column
+      = f.label :title
+    .column
+      = f.text_field :title
+  .row
+    .column
+      = f.label :description
+    .column
+      = f.text_area :description, rows: 10
+  .row
+    .column
+      = f.label :price
+    .column
+      = f.text_field :price
+  .row
+    .column
+      = f.submit I18n.t("send"), class: 'button'
