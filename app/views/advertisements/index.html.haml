@@ -1,4 +1,8 @@
-%h3
+- if flash[:notice]
+  .notice
+    = flash[:notice]
+
+
 - if @advertisements.empty?
   .row
     .column.small-4

@@ -32,6 +32,9 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'interactor'
 gem 'haml-rails'
+gem 'trailblazer'
+gem 'trailblazer-operation'
+gem 'reform-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

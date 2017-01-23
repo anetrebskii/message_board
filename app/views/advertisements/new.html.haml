@@ -2,7 +2,16 @@
   = I18n.t('New advertisement')
 %p.gray
   Please adds your advertisement
-= form_for @advertisement, url: { action: :create } do |f|
+- if @errors && @errors.any?
+  %div#error_explanation
+    %span
+      = "#{pluralize(@errors.count, "error")} prohibited this task from being saved:"
+    %ul
+      - @errors.full_messages.each do |msg|
+        %li
+          = msg
+
+= form_for @advertisement do |f|
   .row
     .column
       = f.label :title
