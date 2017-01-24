@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <%= csrf_meta_tags %>
 
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
 </head>
 
-<body>
+<body ng-app="app" class="page">
 <!-- Start Top Bar -->
 <div class="top-bar">
   <div class="row">
@@ -43,18 +43,18 @@
 <br/>
 <!-- End Top Bar -->
 <div class="row columns">
-  <nav aria-label="You are here:" role="navigation">
-    <ul class="breadcrumbs">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Features</a></li>
-      <li class="disabled">Gene Splicing</li>
-      <li>
-        <span class="show-for-sr">Current: </span> Cloning
-      </li>
-    </ul>
-  </nav>
+  <!--<nav aria-label="You are here:" role="navigation">-->
+    <!--<ul class="breadcrumbs">-->
+      <!--<li><a href="#">Home</a></li>-->
+      <!--<li><a href="#">Features</a></li>-->
+      <!--<li class="disabled">Gene Splicing</li>-->
+      <!--<li>-->
+        <!--<span class="show-for-sr">Current: </span> Cloning-->
+      <!--</li>-->
+    <!--</ul>-->
+  <!--</nav>-->
 </div>
-<div class="row">
+<div class="row main_content">
   <div class="column">
     <%= yield %>
   </div>

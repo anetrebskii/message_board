@@ -1,0 +1,27 @@
+.page {
+  .main_content {
+    margin: 0 100px;
+    width: auto;
+  }
+}
+
+input {
+  &.ng-dirty.ng-invalid {
+    background-color: #ffdddd;
+  }
+
+  &.ng-dirty.ng-valid {
+    background-color: lightgreen;
+  }
+}
+
+textarea {
+  &.ng-dirty.ng-invalid {
+    background-color: #ffdddd;
+  }
+
+  &.ng-dirty.ng-valid {
+    background-color: lightgreen;
+  }
+}
+

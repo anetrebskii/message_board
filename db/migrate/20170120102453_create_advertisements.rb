@@ -4,7 +4,7 @@ class CreateAdvertisements < ActiveRecord::Migration[5.0]
       t.text :title
       t.text :description
       t.text :phone
-      t.float :price, precise: 2
+      t.float :price, precise: 2, default: 0
 
       t.timestamps
     end

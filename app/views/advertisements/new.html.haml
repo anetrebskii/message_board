@@ -1,32 +1,43 @@
-%h3
-  = I18n.t('New advertisement')
-%p.gray
-  Please adds your advertisement
-- if @errors && @errors.any?
-  %div#error_explanation
-    %span
-      = "#{pluralize(@errors.count, "error")} prohibited this task from being saved:"
-    %ul
-      - @errors.full_messages.each do |msg|
-        %li
-          = msg
+.div(ng-controller="AdvertisementNewController")
+  .header
+    %h3.title
+      = I18n.t('New advertisement')
+    %p.announcement
+      Please adds your advertisement
 
-= form_for @advertisement do |f|
-  .row
-    .column
-      = f.label :title
-    .column
-      = f.text_field :title
-  .row
-    .column
-      = f.label :description
-    .column
-      = f.text_area :description, rows: 10
-  .row
-    .column
-      = f.label :price
-    .column
-      = f.text_field :price
-  .row
-    .column
-      = f.submit I18n.t("send"), class: 'button'
+  .form
+    - if @errors && @errors.any?
+      .form_errors
+        %div.errors_overview
+          %span.title
+            = "#{pluralize(@errors.count, "error")} prohibited this task from being saved:"
+          %ul.items
+            - @errors.full_messages.each do |msg|
+              %li
+                = msg
+
+    = form_for @advertisement, html: { class: 'form_fields', name: 'myForm' } do |f|
+      .row.field_group
+        .column
+          = f.label :title
+        .column
+          = f.text_field :title, 'ng-model': 'ad.title', class: 'text_field', required: '', maxlength: '{{title_max_number_letters}}', trim: ''
+          .hint
+            Max number words {{title_max_number_letters - ad.title.length}}
+
+      .row.field_group
+        .column
+          = f.label :description
+        .column
+          = f.text_area :description, rows: 10, 'ng-model': 'ad.description', required: '', trim: ''
+      .row.field_group
+        .column
+          = f.label :price
+        .column.small-2
+          = f.number_field :price, value: 0, 'ng-model': 'ad.price', class: 'text_field--number', min: 1, required: ''
+        .column.small-10.post_inform
+          ₽
+
+      .row.field_group.form_buttons
+        .column
+          = f.submit I18n.t("send"), class: 'button'

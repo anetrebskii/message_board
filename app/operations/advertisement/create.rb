@@ -6,9 +6,10 @@ class Advertisement::Create < Trailblazer::Operation
     property :description
     property :price
 
-    validates :title, presence: true
+    validates :title, presence: true, length: { maximum: 120 }
     validates :description, presence: true
-    validates :price, presence: true
+    validates :price, presence: true, numericality: { only_integer: true, greater_than: 0 }
+
   end
 
   step Model(Advertisement)

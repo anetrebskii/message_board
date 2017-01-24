@@ -1,12 +1,86 @@
 // Place all the styles related to the Advertisement controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.text-center
-{
+.text-center {
   text-align: center;
 }
 
-.gray
+.header {
+  .title {
+    margin: 0;
+  }
+
+  .announcement {
+    color: gray;
+    font-size: 1em;
+  }
+}
+
+.field_group {
+  margin-bottom: 10px;
+
+  input {
+    margin: 0;
+    color: black;
+  }
+
+  textarea {
+    margin: 0;
+    color: black;
+  }
+
+  .text_field {
+    margin: 0;
+
+    &--number {
+      text-align: right;
+    }
+  }
+
+  .hint {
+    color: gray;
+    font-size: 0.7em;
+  }
+
+  .post_inform {
+    font-size: 1.5em;
+    padding-left: 0;
+  }
+}
+
+.form {
+  &_buttons {
+    margin-top: 20px;
+    text-align: right;
+  }
+
+  &_fields {
+
+  }
+
+  &_errors {
+    margin-bottom: 20px;
+  }
+}
+
+.errors_overview
 {
-  color: gray;
+  border: 1px #aa0000 solid;
+  border-radius: 2px;
+  background: #ffdddd;
+  padding: 20px;
+  color: #aa0000;
+  font-size: 0.9em;
+
+  .title {
+
+  }
+
+  ul.items {
+    padding-left: 20px;
+
+    li {
+
+    }
+  }
 }

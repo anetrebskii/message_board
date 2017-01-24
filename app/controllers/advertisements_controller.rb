@@ -7,7 +7,6 @@ class AdvertisementsController < ApplicationController
     @advertisement = Advertisement.new
   end
 
-  # POST
   def create
     result = Advertisement::Create.(params[:advertisement].permit(:title, :description, :price))
     if result.success?

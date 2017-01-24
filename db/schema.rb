@@ -19,9 +19,9 @@ ActiveRecord::Schema.define(version: 20170120102453) do
     t.text     "title"
     t.text     "description"
     t.text     "phone"
-    t.float    "price"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.float    "price",       default: 0.0
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
 end
