@@ -12,8 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-
+//= require jquery-ui
 //= require angular
+//= require jquery.ui.addresspicker
 //= require main
-//= require advertisements
+
 //= require_tree .

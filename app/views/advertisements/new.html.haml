@@ -17,6 +17,13 @@
                 = msg
 
     = form_for @advertisement, html: { class: 'form_fields', name: 'myForm' } do |f|
+      = f.fields_for :address do |ff|
+        .row.field_group
+          .column
+            Address
+          .column
+            = ff.text_field :formatted_address, id: 'addresspicker', class: 'text_field'
+
       .row.field_group
         .column
           = f.label :title

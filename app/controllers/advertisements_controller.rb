@@ -4,11 +4,13 @@ class AdvertisementsController < ApplicationController
   end
 
   def new
-    @advertisement = Advertisement.new
+    @advertisement = Advertisement.new(address: Address.new)
   end
 
   def create
-    result = Advertisement::Create.(params[:advertisement].permit(:title, :description, :price))
+    verified_params = params[:advertisement].permit(:title, :description, :price, address_attributes: [ :formatted_address ])
+    verified_params['address'] = verified_params['address_attributes']
+    result = Advertisement::Create.(verified_params)
     if result.success?
       flash[:notice] = 'Created successful'
       redirect_to root_path

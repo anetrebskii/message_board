@@ -1,19 +1,17 @@
 class Advertisement::Create < Trailblazer::Operation
   extend Contract::DSL
 
-  contract do
-    property :title
-    property :description
-    property :price
+  step Model(Advertisement)
+  step Contract::Build(constant: AdvertisementForm)
+  step Contract::Validate()
+  step Contract::Persist(method: :sync)
+  step :save!
 
-    validates :title, presence: true, length: { maximum: 120 }
-    validates :description, presence: true
-    validates :price, presence: true, numericality: { only_integer: true, greater_than: 0 }
-
+  def save!(options)
+    advertisement = options['model']
+    Advertisement.create(advertisement.attributes)
+    advertisement.address.advertisement_id = advertisement.id
+    Address.create(advertisement.address.attributes)
   end
 
-  step Model(Advertisement)
-  step Contract::Build()
-  step Contract::Validate()
-  step Contract::Persist()
 end
