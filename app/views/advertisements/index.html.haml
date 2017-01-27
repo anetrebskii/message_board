@@ -21,3 +21,4 @@
       .media-object-section
         %h5=adv.title
         %p=adv.description
+        %p=adv.address.try(:formatted_address)

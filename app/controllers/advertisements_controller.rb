@@ -4,11 +4,11 @@ class AdvertisementsController < ApplicationController
   end
 
   def new
-    @advertisement = Advertisement.new(address: Address.new)
+    @advertisement ||= Advertisement.new(address: Address.new)
   end
 
   def create
-    verified_params = params[:advertisement].permit(:title, :description, :price, address_attributes: [ :formatted_address ])
+    verified_params = params[:advertisement].permit(:title, :description, :price, address_attributes: [ :formatted_address, :lat, :lon ])
     verified_params['address'] = verified_params['address_attributes']
     result = Advertisement::Create.(verified_params)
     if result.success?

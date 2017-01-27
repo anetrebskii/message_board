@@ -22,13 +22,16 @@
           .column
             Address
           .column
-            = ff.text_field :formatted_address, id: 'addresspicker', class: 'text_field'
+            = ff.text_field :formatted_address, id: 'addresspicker', class: 'text_field', 'ng-model': 'ad.address.formatted_address', 'ng-init': "ad.address.formatted_address='#{@advertisement.address.formatted_address}'", required: ''
+            -#%span
+            = ff.hidden_field :lat, value: '{{ad.address.lat}}', 'ng-init': "ad.address.lat='#{@advertisement.address.lat}'"
+            = ff.hidden_field :lon, value: '{{ad.address.lon}}', 'ng-init': "ad.address.lon='#{@advertisement.address.lon}'"
 
       .row.field_group
         .column
           = f.label :title
         .column
-          = f.text_field :title, 'ng-model': 'ad.title', class: 'text_field', required: '', maxlength: '{{title_max_number_letters}}', trim: ''
+          = f.text_field :title, 'ng-model': 'ad.title', class: 'text_field', 'ng-init': "ad.title='#{@advertisement.title}'", required: '', maxlength: '{{title_max_number_letters}}', trim: ''
           .hint
             Max number words {{title_max_number_letters - ad.title.length}}
 
@@ -36,12 +39,12 @@
         .column
           = f.label :description
         .column
-          = f.text_area :description, rows: 10, 'ng-model': 'ad.description', required: '', trim: ''
+          = f.text_area :description, rows: 10, 'ng-model': 'ad.description', 'ng-init': "ad.description='#{@advertisement.description}'", required: '', trim: ''
       .row.field_group
         .column
           = f.label :price
         .column.small-2
-          = f.number_field :price, value: 0, 'ng-model': 'ad.price', class: 'text_field--number', min: 1, required: ''
+          = f.number_field :price, value: 0, 'ng-model': 'ad.price', 'ng-init': "ad.price=#{@advertisement.price}", class: 'text_field--number', min: 1, required: ''
         .column.small-10.post_inform
           ₽
 

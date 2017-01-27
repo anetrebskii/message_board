@@ -4,6 +4,8 @@ class Advertisement::AdvertisementForm < Reform::Form
   property :price
   property :address, populate_if_empty: Address do
     property :formatted_address
+    property :lat
+    property :lon
 
     validates :formatted_address, presence: true
   end
