@@ -39,6 +39,8 @@ gem 'reform-rails'
 gem 'money'
 gem 'angularjs-rails'
 gem 'bower-rails'
+gem 'trailblazer-rails'
+gem 'trailblazer-endpoint', git: 'git://github.com/trailblazer/trailblazer-endpoint.git'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
